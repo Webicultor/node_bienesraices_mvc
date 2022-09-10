@@ -1,0 +1,2 @@
+How to rebuild node modules with npm?
+	Try npm i, a short version of npm install inside your directory where package.json exists

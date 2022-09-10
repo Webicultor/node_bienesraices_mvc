@@ -1,0 +1,51 @@
+For the test you need access to a computer with a code editor, docker and node/npm installed.
+
+We will test with you for a short hour, an hour or less.
+You will be able to take help of the internet to finish the test.
+We will test your competence in programming, as well as your ability to find answers to what you do not know.
+
+You can prepare any work you like before this assignment.
+The test is a very simple connection to a MySQL database to perform a simple series of CRUD operations on the targeted entity.
+You are advised to look at he following repository at npm to work with mysql: https://www.npmjs.com/package/mysql
+We want you to set up a MySQL container on your computer through a docker command.
+The connections to the database is expected to look like:
+
+ - host: localhost
+ - port: 3306
+ - user: root
+ - password: abc123
+
+The database schema you can use looks like the following 
+(this schema is not tested, if there is an error in this example, it's not part of the task to solve):
+
+SET NAMES utf8;
+
+CREATE DATABASE IF NOT EXISTS `foo`;
+
+CREATE TABLE IF NOT EXISTS `foo`.`bar`
+(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `baz` VARCHAR(200) NOT NULL,
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+The test is expected to resolve into 3 files:
+
+ - package.json
+ - repository.js
+ - test.js
+
+The repositories interface is expected to be composed of 4 functions:
+
+ - create(bar)
+ - fetch(id) 
+ - update(id, bar) 
+ - delete(id)
+
+The test flow is expected to be written in mocha and chai, but if you feel better about a different tool, then feel free to use what you are comfortable with.
+The test flow is expected to cover:
+
+ - an entity can be created through the repository.
+ - that entity can be fetched after creation.
+ - that entity can be updated after creation.
+ - that entity can be deleted  after creation.
